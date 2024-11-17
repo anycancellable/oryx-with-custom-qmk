@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RGB_TOG,        TOGGLE_LAYER_COLOR,RGB_MODE_FORWARD,RGB_SLD,        RGB_VAD,        RGB_VAI,                                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,        
     KC_TRANSPARENT, KC_TRANSPARENT, KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_AUDIO_MUTE,  KC_TRANSPARENT,                                 KC_PAGE_UP,     KC_HOME,        KC_UP,          KC_END,         KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       QK_LLCK,        KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, LCTL(LSFT(KC_TAB)),LCTL(KC_TAB),   KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, QK_DYNAMIC_TAPPING_TERM_PRINT,QK_DYNAMIC_TAPPING_TERM_UP,QK_DYNAMIC_TAPPING_TERM_DOWN,KC_TRANSPARENT,                                 KC_TRANSPARENT, LCTL(LSFT(KC_TAB)),LCTL(KC_TAB),   KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, TO(0),                                          KC_TRANSPARENT, KC_TRANSPARENT
   ),
 };
@@ -38,23 +38,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_N):
-            return TAPPING_TERM -15;
+            return g_tapping_term -15;
         case MT(MOD_LCTL, KC_R):
-            return TAPPING_TERM -15;
+            return g_tapping_term -15;
         case MT(MOD_LALT, KC_T):
-            return TAPPING_TERM -15;
+            return g_tapping_term -15;
         case MT(MOD_LGUI, KC_S):
-            return TAPPING_TERM -15;
+            return g_tapping_term -15;
         case MT(MOD_RGUI, KC_H):
-            return TAPPING_TERM -15;
+            return g_tapping_term -15;
         case MT(MOD_RALT, KC_A):
-            return TAPPING_TERM -15;
+            return g_tapping_term -15;
         case MT(MOD_RCTL, KC_E):
-            return TAPPING_TERM -15;
+            return g_tapping_term -15;
         case MT(MOD_LSFT, KC_I):
-            return TAPPING_TERM -15;
+            return g_tapping_term -15;
         default:
-            return TAPPING_TERM;
+            return g_tapping_term;
     }
 }
 
