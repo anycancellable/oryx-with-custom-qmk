@@ -16,7 +16,6 @@
 
 // Achordion
 #define ACHORDION_STREAK
-#define SPLIT_KEYBOARD
 
 // Undefs
 #undef ENABLE_RGB_MATRIX_ALPHAS_MODS
