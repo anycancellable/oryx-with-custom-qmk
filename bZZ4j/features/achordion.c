@@ -176,12 +176,12 @@ bool process_achordion(uint16_t keycode, keyrecord_t* record) {
         if (is_mt) {  // Apply mods immediately if they are "eager."
           const uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(keycode));
           if (
-#if defined(CAPS_WORD_ENABLE) && defined(CAPS_WORD_INVERT_ON_SHIFT)
-              // Since eager mods bypass normal event handling, eager Shift does
-              // not work with CAPS_WORD_INVERT_ON_SHIFT. So if this option is
-              // enabled, we don't apply Shift eagerly when Caps Word is on.
+#if defined(CAPS_WORD_ENABLE)
+              // Since eager mods bypass normal event handling, Caps Word does
+              // not work as expected with eager Shift. So we don't apply Shift
+              // eagerly while Caps Word is on.
               !(is_caps_word_on() && (mod & MOD_LSFT) != 0) &&
-#endif  // defined(CAPS_WORD_ENABLE) && defined(CAPS_WORD_INVERT_ON_SHIFT)
+#endif  // defined(CAPS_WORD_ENABLE)
               achordion_eager_mod(mod)) {
             eager_mods = mod;
             process_eager_mods_action();
@@ -340,7 +340,7 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
 
 // By default, the timeout is 1000 ms for all keys.
 __attribute__((weak)) uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-  return 400;
+  return 1000;
 }
 
 // By default, Shift and Ctrl mods are eager, and Alt and GUI are not.
