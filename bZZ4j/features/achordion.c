@@ -337,7 +337,7 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
                                            keyrecord_t* other_record) {
   
   // if thumb row is used
-  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 3) { return true; }
 
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
